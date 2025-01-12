@@ -12,7 +12,7 @@ int main() {
     int cod_cidade;
     char nome[50];
     int populacao;
-    float area;
+    double area;
     double pib;
     int num_pontoturistico;
     
@@ -29,7 +29,7 @@ int main() {
     scanf("%d", &populacao);
 
     printf("\nInforme a area da cidade: ");
-    scanf("%f", &area);
+    scanf("%lf", &area);
 
     printf("\nInforme o PIB da cidade: ");
     scanf("%lf", &pib);
