@@ -1,98 +1,114 @@
-#include <stdio.h>    // Biblioteca padrão de entrada e saída
-#include <string.h>   // Biblioteca para manipulação de strings
-#include <locale.h>   // Biblioteca para suporte a caracteres locais
+#include <stdio.h>
+#include <string.h> // Para funções de manipulação de strings
+#include <locale.h> // Para configuração de localidade e acentuação
 
-int main()
-{
-    // Configuração para suportar caracteres brasileiros
+int main() {
+
+    // Configuração para caracteres acentuados e padrões brasileiros
     setlocale(LC_ALL, "pt_BR.UTF-8");
-    
-    // Declaração das variáveis do programa
-    char estado;               // Armazena a sigla do estado (um caractere)
-    char CodigoCarta[3];       // Armazena o código da carta (até 2 caracteres + '\0')
-    char NomedaCidade[50];     // Armazena o nome da cidade (até 49 caracteres + '\0')
-    int Populacao;             // Armazena a população da cidade
-    float Area;                // Armazena a área da cidade em km²
-    float PIB;                 // Armazena o PIB da cidade em reais
-    int PontosTuristicos;      // Armazena a quantidade de pontos turísticos
-    int num_carta = 1;         // Número da carta (inicializado com 1)
 
-    // Captura dos dados da carta
-    printf("Digite o estado da carta: ");
-    scanf("%c", &estado);      // Lê um caracter para o estado
+    /* ========== DECLARAÇÃO DE VARIÁVEIS ========== */
+    // Carta 1 - Conjunto de variáveis para armazenar todos os atributos da carta
+    char estado1[3];            // 2 caracteres + terminador \0
+    char codigo1[5];            // Código no formato Letra + 2 dígitos + \0 (ex: A01)
+    char cidade1[50];           // Nome da cidade com até 49 caracteres
+    int populacao1;             // População em valor inteiro
+    float area1;                // Área em km² com precisão decimal
+    float pib1;                 // PIB em bilhões com precisão decimal
+    int pontos_turisticos1;     // Quantidade de pontos turísticos
 
-    printf("Digite o código da carta: ");
-    scanf("%s", CodigoCarta);  // Lê uma string para o código
+    // Carta 2 - Estrutura idêntica para segunda carta
+    char estado2[3];
+    char codigo2[4];
+    char cidade2[50];
+    int populacao2;
+    float area2;
+    float pib2;
+    int pontos_turisticos2;
+
+   /* ========== ENTRADA DE DADOS - CARTA 1 ========== */
+    printf("\n=== CADASTRO CARTA 1 ===\n");
     
-    // Limpa o buffer do teclado antes de usar fgets
+    // Estado: leitura de um único caractere com limpeza de buffer
+    printf("Digite o Estado (A-H): ");
+    scanf(" %c", &estado1);               // O espaço antes do %c ignora whitespaces
+    
+    // Código: leitura de string com tamanho fixo (3 caracteres)
+    printf("Digite o Código (ex A02): ");
+    scanf("%3s", codigo1);                // Garante leitura de exatamente 3 caracteres
+    getchar();                            // Remove o \n residual do buffer
+    
+
+    // Cidade: leitura com fgets para permitir espaços
+    printf("Digite o Nome da cidade: ");
+    fgets(cidade1, 50, stdin);              // Lê até 49 caracteres incluindo espaços
+    cidade1[strcspn(cidade1, "\n")] = '\0'; // Remove a quebra de linha final
+    
+    
+    // Dados numéricos: leitura direta com scanf
+    printf("Digite a População: ");
+    scanf("%d", &populacao1);
+    
+    printf("Digite a Área (km²): ");
+    scanf("%f", &area1);
+    
+    printf("Digite o PIB (bilhões): ");
+    scanf("%f", &pib1);
+    
+    printf("Digite os Pontos turísticos: ");
+    scanf("%d", &pontos_turisticos1);
+    getchar();  // Limpeza final do buffer para próxima entrada
+
+
+    /* ========== ENTRADA DE DADOS - CARTA 2 ========== */
+    // Repete o mesmo padrão de leitura para a segunda carta
+    printf("\n=== CADASTRO CARTA 2 ===\n");
+    
+    printf("Digite o Estado (A-H): ");
+    scanf(" %c", &estado2);
+    
+    printf("Digite o Código (ex B03): ");
+    scanf("%3s", codigo2);
+    getchar();
+    
+    printf("Digite o Nome da cidade: ");
+    fgets(cidade2, 50, stdin);
+    cidade2[strcspn(cidade2, "\n")] = '\0';
+    
+    printf("Digite a População: ");
+    scanf("%d", &populacao2);
+    
+    printf("Digite a Área (km²): ");
+    scanf("%f", &area2);
+    
+    printf("Digite o PIB (bilhões): ");
+    scanf("%f", &pib2);
+    
+    printf("Digite os Pontos turísticos: ");
+    scanf("%d", &pontos_turisticos2);
     getchar();
 
-    printf("Digite o nome da cidade: ");
-    fgets(NomedaCidade, sizeof(NomedaCidade), stdin);    // Lê o nome com espaços
-    NomedaCidade[strcspn(NomedaCidade, "\n")] = '\0';    // Remove o caracter de nova linha
-    
-    printf("Digite a população da cidade: ");
-    scanf("%d", &Populacao);   // Lê um número inteiro
 
-    printf("Digite a área da cidade: ");
-    scanf("%f", &Area);        // Lê um número decimal
+    /* ========== EXIBIÇÃO DOS RESULTADOS ========== */
+    // Mostra os dados cadastrados com formatação padronizada
+    printf("\n\n=== CARTA 1 CADASTRADA ===\n");
+    printf("Estado: %s\n", estado1);
+    printf("Código: %s\n", codigo1);
+    printf("Cidade: %s\n", cidade1);
+    printf("População: %d habitantes\n", populacao1);   // Unidade habitantes explicita
+    printf("Área: %.2f km²\n", area1);
+    printf("PIB: R$ %.2f bilhões\n", pib1);             // Unidade monetária R$ e bilhões
+    printf("Pontos Turísticos: %d\n\n", pontos_turisticos1);
 
-    printf("Digite o PIB da cidade: ");
-    scanf("%f", &PIB);         // Lê um número decimal
+    // Repete a exibição para segunda carta com mesmos padrões
+    printf("=== CARTA 2 CADASTRADA ===\n");
+    printf("Estado: %s\n", estado2);
+    printf("Código: %s\n", codigo2);
+    printf("Cidade: %s\n", cidade2);
+    printf("População: %d habitantes\n", populacao2);
+    printf("Área: %.2f km²\n", area2);
+    printf("PIB: R$ %.2f bilhões\n", pib2);
+    printf("Pontos Turísticos: %d\n", pontos_turisticos2);
 
-    printf("Digite a quantidade de pontos turísticos da cidade: ");
-    scanf("%d", &PontosTuristicos);   // Lê um número inteiro
-
-    // Exibição das informações da carta
-    printf("\n----- DADOS DA CARTA DE SUPER TRUNFO -----\n");
-    printf("Carta %d:\n", num_carta);
-    printf("Estado: %c\n", estado);
-    printf("Código da carta: %s\n", CodigoCarta);
-    printf("Nome da cidade: %s\n", NomedaCidade);
-    printf("População: %d habitantes\n", Populacao);
-    printf("Área: %.2f km²\n", Area);
-    printf("PIB: R$ %.2f\n", PIB);
-    printf("Pontos turísticos: %d\n", PontosTuristicos);
-    printf("------------------------------------------\n");
-
-    
-    printf("Digite o estado da carta: ");
-    scanf("%c", &estado);     
-
-    printf("Digite o código da carta: ");
-    scanf("%s", CodigoCarta);  
-    
-    getchar();
-
-    printf("Digite o nome da cidade: ");
-    fgets(NomedaCidade, sizeof(NomedaCidade), stdin);    
-    NomedaCidade[strcspn(NomedaCidade, "\n")] = '\0';   
-    
-    printf("Digite a população da cidade: ");
-    scanf("%d", &Populacao);   
-
-    printf("Digite a área da cidade: ");
-    scanf("%f", &Area);        
-
-    printf("Digite o PIB da cidade: ");
-    scanf("%f", &PIB);         
-
-    printf("Digite a quantidade de pontos turísticos da cidade: ");
-    scanf("%d", &PontosTuristicos);   
-
-    num_carta++;    // Incrementa o número da carta
-
-
-    printf("\n----- DADOS DA CARTA DE SUPER TRUNFO -----\n");
-    printf("Carta %d:\n", num_carta);
-    printf("Estado: %c\n", estado);
-    printf("Código da carta: %s\n", CodigoCarta);
-    printf("Nome da cidade: %s\n", NomedaCidade);
-    printf("População: %d habitantes\n", Populacao);
-    printf("Área: %.2f km²\n", Area);
-    printf("PIB: R$ %.2f\n", PIB);
-    printf("Pontos turísticos: %d\n", PontosTuristicos);
-    printf("------------------------------------------\n");
-    
-    return 0;    // Retorna 0 indicando que o programa foi executado com sucesso
+    return 0;
 }
