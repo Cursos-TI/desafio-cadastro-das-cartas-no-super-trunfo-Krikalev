@@ -1,94 +1,142 @@
-# Desafio Super Trunfo - Países - Cadastro das Cartas - Atualizado: 21/02
+# Super Trunfo de Cidades 🏙️
 
-Bem-vindo ao desafio "Super Trunfo - Países"! No jogo Super Trunfo, os jogadores comparam os atributos das cartas para determinar a mais forte. O tema deste Super Trunfo é "Países", onde você comparará os atributos das cidades.
+## 📋 Descrição
 
-A empresa MateCheck contratou você para desenvolver a parte inicial do jogo, que consiste no cadastro das cartas.
+O Super Trunfo de Países é um jogo de cartas baseado no clássico Super Trunfo, onde cada carta representa uma cidade brasileira com seus atributos específicos. Este programa permite cadastrar duas cartas, calcular atributos derivados, comparar as cartas e determinar qual delas vence em cada categoria.
 
-O desafio está dividido em três níveis: Novato, Aventureiro e Mestre, com cada nível adicionando mais complexidade ao anterior.  **Você deve escolher qual desafio quer realizar.**
+---
 
-🚨 **Atenção:** O nível Novato do desafio é focado apenas no cadastro das cartas, utilizando as funções `scanf` para ler os dados e `printf` para exibi-los.
+## ✨ Funcionalidades
 
-## 🎮 Nível Novato: Cadastro Básico
+O programa oferece as seguintes funcionalidades:
 
-No nível Novato, você iniciará criando o sistema básico do jogo Super Trunfo com o tema "Países". As cartas serão divididas por estados, cada um com quatro cidades.  Imagine um país dividido em oito estados (A a H), e cada estado com quatro cidades (1 a 4).  A combinação forma o código da carta (ex: A01, B02).
+* **Cadastro de Cartas**: Permite cadastrar duas cartas com informações detalhadas sobre cidades.
+* **Cálculo de Atributos Derivados**: Calcula automaticamente a densidade populacional, o PIB per capita e o Super Poder de cada cidade.
+* **Exibição de Cartas**: Mostra todas as informações das cartas cadastradas.
+* **Comparação de Cartas**: Compara as duas cartas em todos os atributos e determina a vencedora em cada categoria.
 
-🚩 **Objetivo:** Criar um programa em C que cadastra **duas** cartas com os seguintes atributos:
+---
 
-*   População (`int`)
-*   Área (`float`)
-*   PIB (`float`)
-*   Número de pontos turísticos (`int`)
+## 🚀 Como Usar
 
-⚙️ **Funcionalidades do Sistema:**
+### 📋 Requisitos
 
-*   O sistema permitirá ao usuário cadastrar os dados de **duas** cartas manualmente via terminal.
-*   Após o cadastro, o sistema exibirá os dados de cada cidade de forma organizada.
+* Compilador C (GCC recomendado)
+* Sistema operacional compatível (Windows, Linux ou macOS)
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+### 🔧 Compilação
 
-*   O usuário insere os dados de cada carta interativamente via `scanf`.
-*   O programa exibe os dados cadastrados usando `printf`, com cada atributo em uma nova linha.
+Para compilar o programa, execute o seguinte comando no terminal:
 
-**Simplificações para o Nível Novato:**
+```bash
+gcc SuperTrunfo.c -o SuperTrunfo
+```
 
-*   Cadastre apenas **duas** cartas.
-*   Concentre-se na leitura, armazenamento e exibição. Não implemente comparações ou outros recursos.
-*   **Não use** laços (`for`, `while`) ou condicionais (`if`, `else`).
+### ▶️ Execução
 
+Para executar o programa, use o comando:
 
-## 🛡️ Nível Aventureiro: Cálculo de Atributos
+```bash
+./SuperTrunfo
+```
 
-No nível Aventureiro, você expandirá o sistema para incluir o cálculo de dois novos atributos: Densidade Populacional e PIB per Capita.
+No Windows, use:
 
-🆕 **Diferença em relação ao Nível Novato:**
+```bash
+SuperTrunfo.exe
+```
 
-*   **Novos Atributos:**
-    *   Densidade Populacional: População / Área (`float`)
-    *   PIB per Capita: PIB / População (`float`)
+### 📝 Instruções de Uso
 
-⚙️ **Funcionalidades do Sistema:**
+1. Ao iniciar o programa, você verá uma mensagem de boas-vindas.
 
-*   O sistema calculará automaticamente a Densidade Populacional e o PIB per Capita.
-*   Os novos atributos serão exibidos junto com os demais.
+2. Siga as instruções para cadastrar a primeira carta:
+   * Digite o estado (uma letra de A a H)
+   * Digite o código da carta (ex: A01)
+   * Digite o nome da cidade
+   * Digite a população da cidade
+   * Digite a área da cidade em km²
+   * Digite o PIB da cidade em bilhões de reais
+   * Digite o número de pontos turísticos da cidade
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+3. Repita o processo para cadastrar a segunda carta.
 
-*   Mesma entrada do nível Novato.
-*   A saída exibirá também os atributos calculados.
+4. O programa calculará automaticamente:
+   * Densidade populacional (habitantes por km²)
+   * PIB per capita (reais por habitante)
+   * Super Poder (uma pontuação baseada em todos os atributos)
 
-**Simplificações para o Nível Intermediário:**
+5. O programa exibirá todas as informações das duas cartas cadastradas.
 
-*   Continue cadastrando apenas **duas** cartas.
-*   Continue **sem usar** laços (`for`, `while`) ou condicionais (`if`, `else`).
+6. Por fim, o programa comparará as duas cartas em cada atributo e mostrará qual carta vence em cada categoria.
 
+---
 
+## 🎮 Atributos das Cartas
 
-## 🏆 Nível Mestre: Comparação e Super Poder
+Cada carta possui os seguintes atributos:
 
-No nível Mestre, você implementará a comparação entre duas cartas e o cálculo do "Super Poder".
+| Atributo | Descrição |
+|----------|-----------|
+| **Estado** | Uma letra de A a H que representa o estado da cidade |
+| **Código** | Um código único para a carta (ex: A01) |
+| **Nome da Cidade** | O nome da cidade representada na carta |
+| **População** | O número de habitantes da cidade |
+| **Área** | A área da cidade em km² |
+| **PIB** | O Produto Interno Bruto da cidade em bilhões de reais |
+| **Pontos Turísticos** | O número de pontos turísticos da cidade |
+| **Densidade Populacional** | Calculado como População ÷ Área (habitantes por km²) |
+| **PIB per Capita** | Calculado como PIB ÷ População (reais por habitante) |
+| **Super Poder** | Uma pontuação calculada com base em todos os atributos |
 
-🆕 **Diferença em relação ao Nível Aventureiro:**
+---
 
-*   **Comparação de Cartas:** O usuário poderá comparar as duas cartas.
-*   **Super Poder:** Soma de todos os atributos (inclusive os calculados), com a densidade populacional *invertida* antes da soma (1/densidade).  Tipo: `float`.
+## 📏 Regras de Comparação
 
-⚙️ **Funcionalidades do Sistema:**
+Na comparação entre as cartas, as seguintes regras são aplicadas:
 
-*   Comparação atributo a atributo, mostrando qual carta venceu (1 se a Carta 1 vence, 0 se a Carta 2 vence).
-*   Para Densidade Populacional, vence a carta com o *menor* valor.
-*   Para os demais atributos (e o Super Poder), vence a carta com o *maior* valor.
+* Para **População**, **Área**, **PIB**, **Pontos Turísticos** e **PIB per Capita**: a carta com o maior valor vence.
+* Para **Densidade Populacional**: a carta com o menor valor vence (menor densidade é considerada melhor).
+* Para **Super Poder**: a carta com o maior valor vence.
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+O resultado da comparação é exibido como:
+* **1**: indica que a Carta 1 venceu
+* **0**: indica que a Carta 2 venceu
 
-*   Mesma entrada dos níveis anteriores, mas a População agora é `unsigned long int`.
-*   A saída mostrará o resultado da comparação para cada atributo e o Super Poder.
+---
 
-**Observação:**  Preste atenção à conversão de tipos ao calcular o Super Poder!
+## 💡 Exemplo de Uso
 
+### Entrada:
 
-## 🏁 Conclusão
+```
+Estado (A-H): A
+Código da Carta (ex: A01): A01
+Nome da Cidade: São Paulo
+População: 12000000
+Área (km²): 1521.11
+PIB (bilhões de reais): 699.29
+Número de Pontos Turísticos: 120
 
-Ao concluir qualquer um dos níveis, você terá dado um passo importante no desenvolvimento do Super Trunfo - Países. Boa sorte e divirta-se programando!
+Estado (A-H): B
+Código da Carta (ex: A01): B01
+Nome da Cidade: Rio de Janeiro
+População: 6700000
+Área (km²): 1200.27
+PIB (bilhões de reais): 365.14
+Número de Pontos Turísticos: 150
+```
 
-Equipe de Ensino - MateCheck
-content_copy
+### Saída:
+
+O programa exibirá todas as informações das cartas e os resultados das comparações, indicando qual carta venceu em cada atributo.
+
+---
+
+## 🎯 Dicas para Jogar
+
+1. **Escolha Estratégica**: Ao jogar com mais cartas, escolha o atributo em que sua carta tem mais chances de vencer.
+2. **Conheça os Atributos**: Entenda como cada atributo é calculado para fazer escolhas mais inteligentes.
+3. **Observe o Super Poder**: O Super Poder é uma boa indicação do poder geral da carta, pois considera todos os atributos.
+
+---
