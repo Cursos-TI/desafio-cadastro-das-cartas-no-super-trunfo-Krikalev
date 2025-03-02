@@ -1,4 +1,4 @@
-# Super Trunfo de Cidades 🏙️
+# Super Trunfo de Países 🏙️
 
 ## 📋 Descrição
 
